@@ -3,6 +3,7 @@ import Button from './dogButton';
 import DogPhoto from './dogPhoto';
 
 
+
 export default function DoggyGallery() {
 
     const [dogPhotos, setDogPhotos] = useState([]);
@@ -12,29 +13,26 @@ export default function DoggyGallery() {
 
 
 
-    function getDogPhoto(){
+    const getDogPhoto = async() => {
 
 
         setLoading(true);
-        fetch("https://dog.ceo/api/breeds/image/random")
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            console.log(data.message);
+        try {
+          const res = await fetch("https://dog.ceo/api/breeds/image/random")
+          if(res.ok){
+            const data = await res.json()
             setLoading(false);
             setDogPhotos(dogPhotos => [...dogPhotos, data.message]);
+          }else{
+            throw Error('Error in fetching data')
+          }}
+        catch(err){
+          setError(true)
+        }finally{
+          setLoading(false)
+        }
+      }
 
-// Why it doesn't work with push?
-            console.log(dogPhotos);
-
-
-
-          })
-          .catch(err => {
-            setError(true);
-            setLoading(false);
-          });
-    }
 
 
 
@@ -57,4 +55,4 @@ export default function DoggyGallery() {
         </div>
 
       );
-}
+          }

@@ -11,18 +11,29 @@ export default function RandomJoke() {
 
     useEffect( () => {
         setLoading(true);
-        fetch("https://official-joke-api.appspot.com/random_joke")
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            setLoading(false);
-            setJoke(data);
-            console.log(joke);
-          })
-          .catch(err => {
-            setError(true);
-            setLoading(false);
-          });
+
+        const getFriend= async() =>{
+          setLoading(true);
+          try {
+            const res =  await fetch("https://official-joke-api.appspot.com/random_joke")
+            if(res.ok){
+              const data = await res.json()
+              console.log(data);
+              setLoading(false);
+              setJoke(data);
+              console.log(joke);
+            }else{
+              throw Error ('Error in fetching data')
+            }
+          }catch(err){
+              setError(true)
+            }finally{
+              setLoading(false)
+            }
+          }
+    
+        
+ 
     }, []);
 
 

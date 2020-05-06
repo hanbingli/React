@@ -1,14 +1,16 @@
 import React from "react";
 
-export default function FriendProfile(props) {
+export default function FriendProfile({friend}) {
     return ( 
         <ul className="profileList">
-           <li>First Name: {props.friend.name.first}</li>
-           <li>Last Name: {props.friend.name.last}</li>
-           <li>Address: {props.friend.location.street}</li>
-           <li>Country: {props.friend.location.state}</li>
-           <li>Email Address: {props.friend.email}</li>
-           <li>Phone Number: {props.friend.phone}</li>
+
+
+           <li>First Name: {friend.name.first}</li>
+           <li>Last Name: {friend.name.last}</li>
+           <li>Address: {friend.location.street}</li>
+           <li>Country: {friend.location.state}</li>
+           <li>Email Address: {friend.email}</li>
+           <li>Phone Number: {friend.phone}</li>
     
     
         </ul>)
