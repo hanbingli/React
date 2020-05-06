@@ -13,6 +13,7 @@ function Counter() {
       <button onClick={() => setCount(count + 1)}>
         Add1!
       </button>
+      <h1>count: {count}</h1>
     </div>
   );
 }
