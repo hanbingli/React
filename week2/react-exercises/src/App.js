@@ -19,14 +19,14 @@ export default function App() {
       <div className = "friend">
         <Friend />
       </div>
-{/* 
-      <div className = "dogGallery">
-        <DoggyGallery />
-      </div>
+// 
+//       <div className = "dogGallery">
+//         <DoggyGallery />
+//       </div>
 
-      <div className = "Joke">
-              <RandomJoke />
-      </div> */}
+//       <div className = "Joke">
+//               <RandomJoke />
+//       </div>
 
 
 
